@@ -8,7 +8,11 @@ if [ "X$ver" = "X" ]; then
     exit 1
 fi
 
-mydir=`dirname $0`
+mydir="`dirname $0`"
+if [ -L $0 ]; then
+  exe="`\ls -l $0 |sed 's/.*->//'`"
+  mydir="$mydir/`dirname $exe`"
+fi
 prffn=$mydir/$prf".prf"
 if [ ! -f $prffn ]; then
     echo "error: profile file $prffn not found"
