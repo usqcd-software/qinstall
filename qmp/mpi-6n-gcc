@@ -1,6 +1,5 @@
 SRCDIR/configure \
  --prefix=INSDIR \
  --with-qmp-comms-type=MPI \
- CC=/usr/local/mvapich-0.9.8/bin/mpicc \
+ CC=/usr/local/mvapich-0.9.9/bin/mpicc \
  CFLAGS="-Wall -O3 -g"
-
