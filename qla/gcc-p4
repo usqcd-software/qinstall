@@ -1,0 +1,6 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --enable-sse2 \
+ CC=gcc \
+ CFLAGS="-Wall -std=c99 -O3 -march=pentium4 -msse2 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer" \
+ TEST_CFLAGS="-Wall -O2"
