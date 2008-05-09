@@ -1,0 +1,5 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --enable-parallel-arch=scalar \
+ CC=cc \
+ CFLAGS="-O2 -g"

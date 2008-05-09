@@ -1,0 +1,10 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --enable-440d \
+ --enable-xlc \
+ --enable-temp-precision=D \
+ --enable-backend-test-cmd="bglrunco 1" \
+ --host=powerpc64-unknown-linux-gnu \
+ CC=blrts_c99 \
+ CFLAGS="-O3 -qarch=440d" \
+ TEST_CFLAGS="-O2"

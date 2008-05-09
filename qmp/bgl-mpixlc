@@ -1,0 +1,7 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp-comms-type=MPI \
+ --enable-bgl \
+ --host=powerpc-bgl-blrts-gnu \
+ CC=mpixlc \
+ CFLAGS="-O3 -g"

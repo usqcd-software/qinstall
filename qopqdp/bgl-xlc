@@ -1,0 +1,8 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qio=QIODIR \
+ --with-qla=QLADIR \
+ --with-qdp=QDPDIR \
+ --host=powerpc-bgl-blrts-gnu \
+ CFLAGS="-O3 -g -DQDP_PROFILE"

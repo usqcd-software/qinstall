@@ -1,0 +1,8 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qio=QIODIR \
+ --with-qla=QLADIR \
+ --enable-nc=3 \
+ --host=powerpc64-unknown-linux-gnu \
+ CFLAGS="-O3"

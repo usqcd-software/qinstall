@@ -1,0 +1,5 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --host=powerpc64-unknown-linux-gnu \
+ CFLAGS="-O3 -g"
