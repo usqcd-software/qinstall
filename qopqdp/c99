@@ -1,0 +1,8 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qio=QIODIR \
+ --with-qla=QLADIR \
+ --with-qdp=QDPDIR \
+ CC=c99 \
+ CFLAGS="-O -g -DQDP_PROFILE"

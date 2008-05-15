@@ -1,3 +1,5 @@
+# qinstall profile the BG/L front end
+
 rootdir=$HOME/lqcd
 
 SRCROOT=$rootdir/src
@@ -5,23 +7,23 @@ DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
-qmp=bgl-mpixlc
+qmp=single-c99
 qmptag=single
 qmpcheck=yes
 
-qio=bgl-qmp-xlc
-qiotag=
+qio=single-c99-bgl
+qiotag=single
 qiocheck=yes
 
-qla=bgl-opt-xlc-bglrunco
-qlatag=
+qla=c99
+qlatag=single
 qlacheck=yes
 
-qdp=bgl-xlc
+qdp=c99
 qdptag=
 qdpcheck=yes
 
-qopqdp=bgl-xlc
+qopqdp=c99
 qopqdptag=
 qopqdpcheck=yes
 

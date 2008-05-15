@@ -1,0 +1,5 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp-comms-type=SINGLE \
+ CC=c99 \
+ CFLAGS="-O -g"
