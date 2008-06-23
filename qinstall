@@ -42,7 +42,7 @@ if [ ! -f "$GTAR" ]; then
   GTAR=tar
 fi
 
-pkg=`echo $package |tr + x`
+pkg=`echo $package |tr '+-' 'x_'`
 conftmpl=$mydir/$package/${!pkg}
 
 pt=$pkg"tag"

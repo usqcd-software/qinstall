@@ -9,6 +9,10 @@ qmp=mpi-mpicc-gcc
 qmptag=
 qmpcheck=yes
 
+qmp_test=qmp-gcc
+qmp_testtag=
+qmp_testcheck=yes
+
 qio=qmp-gcc
 qiotag=
 qiocheck=yes
@@ -21,7 +25,7 @@ qdp=gcc
 qdptag=
 qdpcheck=yes
 
-qopqdp=gcc
+qopqdp=gcc-lapack
 qopqdptag=
 qopqdpcheck=yes
 
