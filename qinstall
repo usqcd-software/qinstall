@@ -22,19 +22,23 @@ fi
 
 if [ ! -d $SRCROOT ]; then
     echo "error: source root dir $SRCROOT not found"
-    exit 1;
+#    exit 1;
+    mkdir -p $SRCROOT
 fi
 if [ ! -d $DLDIR ]; then
     echo "error: download dir $DLDIR not found"
-    exit 1;
+#    exit 1;
+    mkdir -p $DLDIR
 fi
 if [ ! -d $BLDROOT ]; then
     echo "error: build root dir $BLDROOT not found"
-    exit 1;
+#    exit 1;
+    mkdir -p $BLDROOT
 fi
 if [ ! -d $INSROOT ]; then
     echo "error: installation root dir $INSROOT not found"
-    exit 1;
+#    exit 1;
+    mkdir -p $INSROOT
 fi
 
 GTAR="`which gtar`"
