@@ -94,7 +94,8 @@ else
 	if [ -d $package ]; then
 	    echo "assuming unpacked into found dir $package"
 	    echo "moving to $srcdir"
-	    mv -v $package $srcdir
+#	    mv -v $package $srcdir
+	    mv $package $srcdir
 	else
 	    echo "can't find source dir"
 	    cd -
@@ -115,7 +116,8 @@ else
     fi
     if [ ! -d $blddir ]; then
         echo "creating build directory $blddir"
-        mkdir -pv $blddir
+#        mkdir -pv $blddir
+        mkdir -p $blddir
     fi
     sed "s|SRCDIR|$srcdir|g;s|INSDIR|$insdir|g;s|QMPDIR|$qmpdir|g;s|QIODIR|$qiodir|g;s|QLADIR|$qladir|g;s|QDPDIR|$qdpdir|g;s|QDPXXDIR|$qdpxxdir|g" $conftmpl >$blddir/$conf
     chmod 755 $blddir/$conf
