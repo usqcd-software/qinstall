@@ -1,16 +1,18 @@
-rootdir=~/CPS/SciDAC/
+rootdir=~/SciDAC/
 
 SRCROOT=$rootdir/scidac-build/src
 DLDIR=$rootdir/scidac-build/download
 BLDROOT=$rootdir/scidac-build/build
 INSROOT=$rootdir/scidac/install
 
-qmp=mpi-mpicc-gcc-bgp
-qmptag=BGP
+#qmp=single-gcc
+qmp=single-gcc-noopt
+qmptag=LOCAL
 qmpcheck=yes
 
-qio=qmp-gcc-bgp
-qiotag=BGP
+#qio=qmp-gcc-scalar
+qio=qmp-gcc-scalar-noopt
+qiotag=LOCAL
 qiocheck=yes
 
 qla=gcc-7n
