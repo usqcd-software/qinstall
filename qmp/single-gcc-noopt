@@ -2,5 +2,5 @@ SRCDIR/configure \
  --prefix=INSDIR \
  --with-qmp-comms-type=SINGLE \
  CC=gcc \
- CFLAGS="-Wall -O3 -g -D_LARGEFILE_SOURCE"
+ CFLAGS="-Wall -g -D_LARGEFILE_SOURCE"
 

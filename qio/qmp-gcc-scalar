@@ -1,5 +1,6 @@
 SRCDIR/configure \
  --prefix=INSDIR \
- --with-qmp=QMPDIR \
  --enable-largefile \
+ --enable-parallel-arch=scalar \
+ --with-qmp=QMPDIR \
  CFLAGS="-Wall -O3 -g -D_LARGEFILE_SOURCE"

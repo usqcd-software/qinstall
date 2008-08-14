@@ -1,0 +1,6 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --host=powerpc-bgp-linux \
+ CC=mpicc \
+ --enable-largefile CFLAGS="-Wall -O3 -g"
