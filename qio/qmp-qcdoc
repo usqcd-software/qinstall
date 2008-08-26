@@ -1,0 +1,10 @@
+SRCDIR/configure \
+ CC="powerpc-gnu-elf-gcc" \
+ AR="powerpc-gnu-elf-ar" \
+ --prefix=INSDIR \
+ --with-qmp=${QMP_DIR} \
+ RANLIB="powerpc-gnu-elf-ranlib"  \
+ --host=qcdoc --build=none \
+ --enable-parallel-arch=parscalar \
+ --disable-qmp-route\
+ --enable-largefile CFLAGS="-Wall -O3 -g"

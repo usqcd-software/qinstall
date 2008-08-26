@@ -1,4 +1,3 @@
-#rootdir=~/SciDAC/
 rootdir=/qcdoc/sfw/SciDAC/
 
 SRCROOT=$rootdir/scidac-build/src
@@ -6,14 +5,12 @@ DLDIR=$rootdir/scidac-build/download
 BLDROOT=$rootdir/scidac-build/build
 INSROOT=$rootdir/scidac/install
 
-qmp=single-gcc
-#qmp=single-gcc-noopt
-qmptag=LOCAL
+qmp=mpi-mpicc-gcc
+qmptag=QCDOC
 qmpcheck=yes
 
-qio=qmp-gcc-scalar
-#qio=qmp-gcc-scalar-noopt
-qiotag=LOCAL
+qio=qmp-qcdoc
+qiotag=QCDOC
 qiocheck=yes
 
 qla=gcc-7n
