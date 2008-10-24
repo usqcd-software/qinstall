@@ -1,9 +1,9 @@
-rootdir=$HOME/scidac-build
+rootdir=$HOME/lqcd
 
 SRCROOT=$rootdir/src
 DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
-INSROOT=$HOME/scidac
+INSROOT=$rootdir/install
 
 qmp=mpi-mpicc-gcc
 qmptag=

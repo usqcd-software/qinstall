@@ -13,12 +13,24 @@ if [ -L $0 ]; then
   exe="`\ls -l $0 |sed 's/.*->//'`"
   mydir="$mydir/`dirname $exe`"
 fi
+
 prffn=$mydir/$prf".prf"
 if [ ! -f $prffn ]; then
     echo "error: profile file $prffn not found"
     exit 1
 fi
 . $prffn
+
+localdeffn=$mydir/"default.local"
+if [ -f $localdeffn ]; then
+  . $localdeffn
+fi
+
+localprffn=$mydir/$prf".local"
+if [ -f $localprffn ]; then
+  . $localprffn
+fi
+
 
 if [ ! -d $SRCROOT ]; then
     echo "error: source root dir $SRCROOT not found"

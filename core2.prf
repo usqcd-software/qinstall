@@ -25,7 +25,7 @@ qdp=gcc
 qdptag=
 qdpcheck=yes
 
-qopqdp=gcc-lapack
+qopqdp=gcc
 qopqdptag=
 qopqdpcheck=yes
 

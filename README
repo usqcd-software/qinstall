@@ -50,6 +50,13 @@ Each .prf file defines a set of directories and the configure templates
 to be used for each package along with a few options.
 The .prf file is interpereted by bash to set the necessary variables.
 
+You can override any settings in a .prf file by creating a corresponding
+.local file or a default.local file with the settings you want.  The order
+of sourcing files for running "qinstall foo ..." is
+ foo.prf
+ default.local (if it exists)
+ foo.local (if it exists)
+
 The directories needed are:
 DLDIR    where the package tarballs are downloaded to
 SRCROOT  where the source tarballs are untarred into
@@ -90,3 +97,12 @@ QIODIR
 QLADIR
 QDPDIR
 QDPXXDIR
+
+
+Other special variables:
+
+makeflags
+ used to build packages by "make $makeflags ..."
+ you can specify parallel makes with something like
+ makeflags="-j4"
+ in one of the configuration files
