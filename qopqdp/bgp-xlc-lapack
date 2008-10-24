@@ -1,0 +1,12 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qio=QIODIR \
+ --with-qla=QLADIR \
+ --with-qdp=QDPDIR \
+ --host=powerpc-bgp-linux \
+ --enable-lapack \
+ CC=mpixlc_r \
+ CFLAGS="-O3 -qarch=450d -g -DQDP_PROFILE" \
+ LDFLAGS="-L/opt/ibmcmp/xlf/bg/11.1/lib" \
+ LIBS="/soft/apps/LAPACK/liblapack_bgp.a /soft/apps/LIBGOTO/libgoto.a -lxlf90 -lxlsmp"

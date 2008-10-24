@@ -13,7 +13,7 @@ qio=bgp-qmp-xlc
 qiotag=
 qiocheck=yes
 
-qla=bgp-opt-xlc-bgrun
+qla=bgp-opt-xlc-cobalt
 qlatag=
 qlacheck=yes
 
@@ -21,8 +21,8 @@ qdp=bgp-xlc
 qdptag=
 qdpcheck=yes
 
-qopqdp=bgp-xlc
-qopqdptag=
+qopqdp=bgp-xlc-lapack
+qopqdptag=lapack
 qopqdpcheck=yes
 
 qdpxx=

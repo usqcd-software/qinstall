@@ -124,7 +124,7 @@ if cd $blddir; then
         exit 1
     fi
     echo "building package..."
-    if ! make >&make.log; then
+    if ! make $makeflags >&make.log; then
         echo "error: can't build package"
         exit 1
     fi

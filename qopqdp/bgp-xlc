@@ -5,4 +5,4 @@ SRCDIR/configure \
  --with-qla=QLADIR \
  --with-qdp=QDPDIR \
  --host=powerpc-bgp-linux \
- CFLAGS="-O3 -g -DQDP_PROFILE"
+ CFLAGS="-O3 -qarch=450d -g -DQDP_PROFILE"
