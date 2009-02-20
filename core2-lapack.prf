@@ -9,11 +9,15 @@ qmp=mpi-mpicc-gcc
 qmptag=
 qmpcheck=yes
 
+qmp_test=qmp-gcc
+qmp_testtag=
+qmp_testcheck=yes
+
 qio=qmp-gcc
 qiotag=
 qiocheck=yes
 
-qla=gcc-k8
+qla=gcc-core2
 qlatag=
 qlacheck=yes
 
@@ -21,14 +25,14 @@ qdp=gcc
 qdptag=
 qdpcheck=yes
 
-qopqdp=gcc
-qopqdptag=
+qopqdp=gcc-lapack
+qopqdptag=lapack
 qopqdpcheck=yes
 
-qdpxx=mpi-mpicxx-gcc-k8-float
+qdpxx=mpi-mpicxx-gcc-core2-float
 qdpxxtag=
 qdpxxcheck=yes
 
-chroma=mpicc-gcc-k8-gmp
+chroma=gcc-core2-gmp
 chromatag=
 chromacheck=yes

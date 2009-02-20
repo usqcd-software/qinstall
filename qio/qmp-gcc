@@ -1,4 +1,5 @@
 SRCDIR/configure \
  --prefix=INSDIR \
  --with-qmp=QMPDIR \
+ --enable-dml-output-buffering \
  CFLAGS="-Wall -O3 -g"
