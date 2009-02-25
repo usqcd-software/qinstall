@@ -8,5 +8,5 @@ SRCDIR/configure \
  --enable-lapack \
  CC=mpixlc_r \
  CFLAGS="-O3 -qarch=450d -g -DQDP_PROFILE" \
- LDFLAGS="-L/opt/ibmcmp/xlf/bg/11.1/lib" \
- LIBS="/soft/apps/LAPACK/liblapack_bgp.a /soft/apps/LIBGOTO/libgoto.a -lxlf90 -lxlsmp"
+ LDFLAGS="-L/opt/ibmcmp/xlf/bg/11.1/bglib" \
+ LIBS="/soft/apps/LAPACK/liblapack_bgp.a /soft/apps/LIBGOTO/libgoto.a -lxlf90_r -lxlomp_ser -lxlfmath"
