@@ -1,0 +1,4 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ CXX=g++ \
+ CXXFLAGS="-Wall -O3"

@@ -17,8 +17,8 @@ qio=qmp-gcc
 qiotag=
 qiocheck=yes
 
-qla=gcc-core2
-qlatag=
+qla=gcc-core2-nosse
+qlatag=nosse
 qlacheck=yes
 
 qdp=gcc

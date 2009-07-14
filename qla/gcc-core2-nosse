@@ -1,0 +1,5 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ CC=gcc \
+ CFLAGS="-Wall -std=c99 -O3 -march=nocona -msse3 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer" \
+ TEST_CFLAGS="-Wall -O2"
