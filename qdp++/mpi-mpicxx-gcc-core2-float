@@ -1,0 +1,10 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --enable-parallel-arch=parscalar \
+ --enable-precision=single \
+ --enable-sse2 \
+ CC=mpicc \
+ CFLAGS="-Wall -O3 -g -march=nocona -msse3 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer" \
+ CXX=mpicxx \
+ CXXFLAGS="-Wall -O3 -g -march=nocona -msse3 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer"
