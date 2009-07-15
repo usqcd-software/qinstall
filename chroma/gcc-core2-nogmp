@@ -1,0 +1,12 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qdp=QDPXXDIR \
+ --enable-sse-wilson-dslash \
+ --enable-cg-dwf=sse \
+ CXX=mpicxx \
+ CXXFLAGS="-Wall -O3 -march=nocona -msse3 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer"
+
+
+
+# --without-gmp \
