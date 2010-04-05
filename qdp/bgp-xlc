@@ -4,4 +4,4 @@ SRCDIR/configure \
  --with-qio=QIODIR \
  --with-qla=QLADIR \
  --host=powerpc-bgp-linux \
- CFLAGS="-O3"
+ CFLAGS="-O3 -qarch=450d"

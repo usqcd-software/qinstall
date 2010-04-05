@@ -5,7 +5,7 @@ DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
-qmp=bgp-mpixlc
+qmp=bgp-mpixlc-fast
 qmptag=
 qmpcheck=yes
 
@@ -13,7 +13,7 @@ qio=bgp-qmp-xlc
 qiotag=
 qiocheck=yes
 
-qla=bgp-opt-xlc-cobalt
+qla=bgp-opt-xlc-bgrun
 qlatag=
 qlacheck=yes
 
