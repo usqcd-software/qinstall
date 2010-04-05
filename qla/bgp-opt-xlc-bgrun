@@ -1,0 +1,11 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --enable-440d \
+ --enable-xlc \
+ --enable-c99-complex \
+ --enable-temp-precision=D \
+ --enable-backend-test-cmd="sleep 15; bgrun -t 10 1 " \
+ --host=powerpc-bgp-linux \
+ CC=bgxlc_r \
+ CFLAGS="-O3 -qarch=450d" \
+ TEST_CFLAGS="-O2"
