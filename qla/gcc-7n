@@ -1,5 +1,6 @@
 SRCDIR/configure \
  --prefix=INSDIR \
+ --enable-sse3 \
  CC=gcc \
- CFLAGS="-Wall -std=c99 -O3 -march=k8 -msse2 -m3dnow -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer" \
+ CFLAGS="-Wall -std=c99 -O3 -march=amdfam10 -msse4a -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer" \
  TEST_CFLAGS="-Wall -O2"

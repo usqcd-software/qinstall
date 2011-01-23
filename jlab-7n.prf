@@ -21,7 +21,7 @@ qdp=gcc
 qdptag=7n
 qdpcheck=yes
 
-qopqdp=gcc
+qopqdp=gcc-7n
 qopqdptag=7n
 qopqdpcheck=yes
 
