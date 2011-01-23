@@ -72,6 +72,8 @@ qdpxxdir=$INSROOT/qdp++${qdpxxtag:+-$qdpxxtag}
 
 pv=$package-$ver
 tarfile=$pv.tar.gz
+tarflags="zxvf"
+tarfilebz2=$pv.tar.bz2
 usqcd=http://usqcd.jlab.org/usqcd-software
 srcdir=$SRCROOT/$pv
 blddir=$BLDROOT/$pv$tag
@@ -83,6 +85,10 @@ if [ -d $srcdir ]; then
     echo "using existing source in $srcdir"
 else
 # download source
+    if [ -f $DLDIR/$tarfilebz2 ]; then
+	tarfile=$tarfilebz2
+	tarflags="jxvf"
+    fi
     if [ -f $DLDIR/$tarfile ]; then
         echo "using existing tarfile $DLDIR/$tarfile"
     else
@@ -96,7 +102,7 @@ else
     fi
 # untar
     cd $SRCROOT
-    $GTAR zxvf $DLDIR/$tarfile
+    $GTAR $tarflags $DLDIR/$tarfile
     if [ ! -d $srcdir ]; then
         echo "warning: tarfile unpacked to wrong directory"
 	if [ -d $package ]; then

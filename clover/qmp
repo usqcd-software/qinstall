@@ -1,0 +1,9 @@
+cp -rp SRCDIR/* .
+CC=mpicc \
+CFLAGS="-Wall -std=c99 -O3 -g -DQDP_PROFILE" \
+ ./configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qdp=QDPDIR \
+ --with-gsl=/opt/local \
+ --target=c99-32

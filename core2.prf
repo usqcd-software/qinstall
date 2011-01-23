@@ -29,6 +29,10 @@ qopqdp=gcc
 qopqdptag=
 qopqdpcheck=yes
 
+clover=qmp
+clovertag=
+clovercheck=no
+
 qdpxx=mpi-mpicxx-gcc-core2-float
 qdpxxtag=
 qdpxxcheck=yes
