@@ -3,5 +3,5 @@ SRCDIR/configure \
  --with-qmp-comms-type=MPI \
  --enable-bgp \
  --host=powerpc-bgp-linux \
- CC=/bgsys/drivers/ppcfloor/comm/fast/bin/mpixlc_r \
+ CC="tmpwrap /bgsys/drivers/ppcfloor/comm/fast/bin/mpixlc_r" \
  CFLAGS="-O3 -qarch=450d -g"

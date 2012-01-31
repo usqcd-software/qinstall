@@ -6,6 +6,6 @@ SRCDIR/configure \
  --enable-temp-precision=D \
  --enable-backend-test-cmd="sleep 15; bgrun -t 10 1 " \
  --host=powerpc-bgp-linux \
- CC=bgxlc_r \
+ CC=tbgxlc_r \
  CFLAGS="-O3 -qarch=450d" \
  TEST_CFLAGS="-O2"

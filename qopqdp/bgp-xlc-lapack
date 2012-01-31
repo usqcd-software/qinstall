@@ -7,5 +7,5 @@ SRCDIR/configure \
  --host=powerpc-bgp-linux \
  --enable-lapack \
  CFLAGS="-O3 -qarch=450d -g -DQDP_PROFILE" \
- LDFLAGS="-L/opt/ibmcmp/xlf/bg/11.1/bglib" \
+ LDFLAGS="-L/soft/apps/ibmcmp/xlf/bg/11.1/bglib" \
  LIBS="/soft/apps/LAPACK/liblapack_bgp.a /soft/apps/LIBGOTO/libgoto.a -lxlf90_r -lxlomp_ser -lxlfmath"
