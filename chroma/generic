@@ -1,0 +1,5 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qdp=QDPXXDIR \
+ 

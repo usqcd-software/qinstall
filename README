@@ -1,6 +1,8 @@
+===============================================================================
 qinstall -- a simple installer/updater for SciDAC Lattice QCD libraries
-
-Usage:
+James C. Osborn
+===============================================================================
+USAGE:
 
 Choose a .prf file that you want to use or create a new one (see below).
 
@@ -19,7 +21,92 @@ qinstall jlab-6n qdp 1.7.1
 
 will install qdp-1.7.1 using the jlab-6n.prf profile.
 
+If you leave out <prf> on the command line then it will default to
+the hostname as reported by 'hostname -s'.  You could then just create
+a symbolic link from <hostname>.prf to the configuration file for that host.
 
+===============================================================================
+CONFIGURATION:
+
+The behavior of qinstall is controlled by several variables defined in
+bash shell scripts that are sourced at the beginning of the qinstall script.
+The configuration files are sourced in the order:
+
+qinstall.defaults
+<prf>.prf
+qinstall.local
+<prf>.local
+
+These are all bash shell scripts in the same directory as the qinstall script
+(the actual script, not just a symbolic link to it).  The files don't all
+have to exist and will be ignored if missing.  The *.local files are not
+included in the distribution of qinstall, so are useful to override variables
+without modifying the distributed files.
+
+===============================================================================
+VARIABLES:
+
+The directories used are defined by:
+DLDIR    where the package tarballs are downloaded to
+SRCROOT  where the source tarballs are untarred into
+BLDROOT  where the package build dirs will be
+INSROOT  where the package installation directories will be
+
+Each version of each package will have its own source, build and install
+directory under each of the respective root directories.
+
+For example:
+$SRCDIR/qmp-2.1.7
+$SRCDIR/qio-2.2.0
+$SRCDIR/qla-1.6.2
+...
+and likewise for the build and install dirs.
+
+Each package then has a set of variables like:
+qmp=mpi-6n-gcc
+qmptag=6n
+qmpcheck=yes
+qmpopts='...'
+
+The first, "qmp", specifies which configure template will be used to configure
+the package of the same name.  These are found in the subdirectory with the
+same name as the package.  In this case it will use the file "qmp/mpi-6n-gcc".
+
+The second, "qmptag", specifies an optional tag that will be appended to the
+build and install directories.  In this case something like "qdp-1.7.1-6n".
+If left blank the build and install dirs will just be like "qdp-1.7.1".
+
+The third, "qmpcheck", specifies whether to run "make check" or not.
+
+The last, "qmpopts", is an optional string appended to the configure command.
+
+The configure templates are just the configure command to run with the
+following self explanatory substitutions made:
+SRCDIR
+INSDIR
+QMPDIR
+QIODIR
+QLADIR
+QDPDIR
+QDPXXDIR
+
+Other special variables:
+
+server
+ server and path where source tarballs are stored
+ the full URL for a tarball will then be, for example,
+ $server/qdp/qdp-1.7.1.tar.gz
+
+makeflags
+ used to build packages by "make $makeflags ..."
+ you can specify parallel makes with something like
+ makeflags="-j4"
+ in one of the configuration files
+
+run_check_in_background
+ if "yes" then the "make check" step is run in the background
+
+===============================================================================
 INSTALLATION PROCEDURE:
 
 given the example command:
@@ -43,66 +130,4 @@ Lastly it creates a symbolic link in the install dir from "qdp" to "qdp-1.7.1".
 This allows one to use the version-less link in makefiles to automatically
 get the latest version.
 
-
-CONFIGURATION:
-
-Each .prf file defines a set of directories and the configure templates
-to be used for each package along with a few options.
-The .prf file is interpereted by bash to set the necessary variables.
-
-You can override any settings in a .prf file by creating a corresponding
-.local file or a default.local file with the settings you want.  The order
-of sourcing files for running "qinstall foo ..." is
- foo.prf
- default.local (if it exists)
- foo.local (if it exists)
-
-The directories needed are:
-DLDIR    where the package tarballs are downloaded to
-SRCROOT  where the source tarballs are untarred into
-BLDROOT  where the package build dirs will be
-INSROOT  where the package installation directories will be
-
-Each version of each package will have its own source, build and install
-directory under each of the respective root directories.
-
-For example:
-$SRCDIR/qmp-2.1.7
-$SRCDIR/qio-2.2.0
-$SRCDIR/qla-1.6.2
-...
-and likewise for the build and install dirs.
-
-Each package then has a set of variables like:
-qmp=mpi-6n-gcc
-qmptag=6n
-qmpcheck=yes
-
-The first, "qmp", specifies which configure template will be used to configure
-the package of the same name.  These are found in the subdirectory with the
-same name as the package.  In this case it will use the file "qmp/mpi-6n-gcc".
-
-The second, "qmptag", specifies an optional tag that will be appended to the
-build and install directories.  In this case something like "qdp-1.7.1-6n".
-If left blank the build and install dirs will just be like "qdp-1.7.1".
-
-The third, "qmpcheck", specifies whether to run "make check" or not.
-
-The configure templates are just the configure command to run with the
-following self explanatory substitutions made:
-SRCDIR
-INSDIR
-QMPDIR
-QIODIR
-QLADIR
-QDPDIR
-QDPXXDIR
-
-
-Other special variables:
-
-makeflags
- used to build packages by "make $makeflags ..."
- you can specify parallel makes with something like
- makeflags="-j4"
- in one of the configuration files
+===============================================================================

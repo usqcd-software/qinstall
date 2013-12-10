@@ -1,0 +1,10 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qio=QIODIR \
+ --with-qla=QLADIR \
+ --with-qdp=QDPDIR \
+ --enable-lapack \
+ --enable-underscores \
+ CFLAGS="-Wall -std=c99 -O3 -g -fPIC -fopenmp -DQDP_PROFILE" \
+ LIBS="-llapack -lblas"

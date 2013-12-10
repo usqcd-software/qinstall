@@ -1,0 +1,7 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --enable-sse3 \
+ --enable-openmp \
+ CC=gcc \
+ CFLAGS="-Wall -std=c99 -O3 -fPIC -march=amdfam10 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer -fopenmp" \
+ TEST_CFLAGS="-Wall -O2 -std=c99 -fopenmp"

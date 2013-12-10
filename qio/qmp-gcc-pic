@@ -3,4 +3,4 @@ SRCDIR/configure \
  --with-qmp=QMPDIR \
  --enable-largefile \
  --enable-dml-output-buffering \
- CFLAGS="-Wall -std=gnu99 -O3 -g"
+ CFLAGS="-Wall -std=c99 -O3 -g -fPIC -DHAVE_BGL"

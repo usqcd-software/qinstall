@@ -3,4 +3,4 @@ SRCDIR/configure \
  --enable-sse3 \
  CC=gcc \
  CFLAGS="-Wall -std=c99 -O3 -march=nocona -msse3 -mfpmath=sse -ffast-math -funroll-loops -fprefetch-loop-arrays -fomit-frame-pointer" \
- TEST_CFLAGS="-Wall -O2"
+ TEST_CFLAGS="-Wall -std=c99 -O2"
