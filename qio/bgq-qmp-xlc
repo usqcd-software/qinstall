@@ -1,0 +1,7 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --host=powerpc64-bgq-linux \
+ --enable-largefile \
+ --enable-dml-output-buffering \
+ CFLAGS="-O3 -qinfo=pro -g -DHAVE_BGL"

@@ -1,0 +1,7 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp=QMPDIR \
+ --with-qio=QIODIR \
+ --with-qla=QLADIR \
+ --host=powerpc64-bgq-linux \
+ CFLAGS="-O3 -qinfo=pro -qsmp=omp"

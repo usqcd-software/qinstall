@@ -1,0 +1,10 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --enable-xlc \
+ --enable-qpx \
+ --enable-temp-precision=D \
+ --enable-backend-test-cmd="cqsub -n 1 -c 1 -m c1 -t 10" \
+ --host=powerpc64-bgq-linux \
+ CC=bgxlc \
+ CFLAGS="-O3 -qsmp=omp" \
+ TEST_CFLAGS="-O2 -qsmp=omp"

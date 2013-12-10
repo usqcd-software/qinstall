@@ -1,0 +1,6 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp-comms-type=MPI \
+ --host=powerpc64-bgq-linux \
+ CC="tmpwrap mpixlc_r" \
+ CFLAGS="-O3 -qinfo=pro -g"
