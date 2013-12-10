@@ -1,0 +1,7 @@
+SRCDIR/configure \
+ --prefix=INSDIR \
+ --with-qmp-comms-type=MPI \
+ --enable-bgp \
+ --host=powerpc-bgp-linux \
+ CC=mpicc.ibm \
+ CFLAGS="-O3 -g"
