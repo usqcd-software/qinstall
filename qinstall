@@ -24,7 +24,7 @@ my_realpath() {
     d="`dirname \"$ff\"`"
     f="`readlink \"$ff\"`"
     ff="$d/$f"
-    if expr "$f" : "^/" >/dev/null; then
+    if expr "$f" : '/' >/dev/null; then
       ff="$f"
     fi
   done
@@ -75,7 +75,7 @@ if [ ! -d "$INSROOT" ]; then
     exit 1;
 fi
 
-GTAR="`which gtar`"
+GTAR="`which gtar` 2>/dev/null"
 if [ ! -f "$GTAR" ]; then
   GTAR=tar
 fi
@@ -119,8 +119,8 @@ else
         echo "using existing tarfile \"$DLDIR/$tarfile\""
     else
         cd "$DLDIR"
-        if ! wget "$usqcd/$package/$tarfile"; then
-            echo "error: can't get \"$usqcd/$package/$tarfile\""
+        if ! wget "$server/$package/$tarfile"; then
+            echo "error: can't get \"$server/$package/$tarfile\""
             cd -
             exit 1
         fi
