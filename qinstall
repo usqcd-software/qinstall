@@ -155,7 +155,7 @@ else
     fi
     if [ ! -d "$blddir" ]; then
         echo "creating build directory \"$blddir\""
-        mkdir -pv \"$blddir\"
+        mkdir -pv "$blddir"
     fi
     sed "s|SRCDIR|$srcdir|g;s|INSDIR|$insdir|g;s|QMPDIR|$qmpdir|g;s|QIODIR|$qiodir|g;s|QLADIR|$qladir|g;s|QDPDIR|$qdpdir|g;s|QDPXXDIR|$qdpxxdir|g" "$conftmpl" >"$blddir/$conf"
     po="${pkg}opts"

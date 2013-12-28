@@ -1,4 +1,4 @@
-server=http://usqcd.jlab.org/usqcd-software
+server="http://usqcd.jlab.org/usqcd-software"
 
 rootdir=$HOME/lqcd
 SRCROOT=$rootdir/src

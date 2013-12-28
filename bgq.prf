@@ -1,10 +1,3 @@
-rootdir=$HOME/lqcd
-
-SRCROOT=$rootdir/src
-DLDIR=$rootdir/download
-BLDROOT=$rootdir/build
-INSROOT=$rootdir/install
-
 qmp=bgq-mpixlc
 qmptag=
 qmpcheck=yes
@@ -21,9 +14,12 @@ qdp=bgq-xlc
 qdptag=
 qdpcheck=yes
 
-qopqdp=bgq-xlc
+qopqdp=generic
 qopqdptag=
 qopqdpcheck=yes
+qopqdpopts=\
+'--host=powerpc64-bgq-linux \
+ CFLAGS="-O3 -qinfo=pro -g -DQDP_PROFILE"'
 
 qdpxx=
 qdpxxtag=
