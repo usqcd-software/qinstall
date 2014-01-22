@@ -10,5 +10,6 @@ run_check_in_background=yes
 
 procs="`grep processor /proc/cpuinfo |wc -l`"
 if [ "${procs}0" -ge 10 ]; then
+  if [ "$procs" -gt 16 ]; then procs=16; fi
   makeflags="-j$procs"
 fi

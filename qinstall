@@ -24,7 +24,7 @@ my_realpath() {
     d="`dirname \"$ff\"`"
     f="`readlink \"$ff\"`"
     ff="$d/$f"
-    if expr "$f" : '/' >/dev/null; then
+    if expr "$f" : '\/' >/dev/null; then
       ff="$f"
     fi
   done
