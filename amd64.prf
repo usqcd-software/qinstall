@@ -25,6 +25,13 @@ qopqdp=gcc-pic
 qopqdptag=
 qopqdpcheck=yes
 
+qhmc=generic
+qhmcptag=
+qhmccheck=yes
+qhmcopts=\
+'--enable-nc=all \
+ CFLAGS="-Wall -std=gnu99 -O3 -g -fopenmp -fPIC -DQDP_PROFILE"'
+
 qdpxx=mpi-mpicxx-gcc-k8-float
 qdpxxtag=
 qdpxxcheck=yes

@@ -94,6 +94,7 @@ qmpdir="$INSROOT/qmp${qmptag:+-$qmptag}"
 qiodir="$INSROOT/qio${qiotag:+-$qiotag}"
 qladir="$INSROOT/qla${qlatag:+-$qlatag}"
 qdpdir="$INSROOT/qdp${qdptag:+-$qdptag}"
+qopqdpdir="$INSROOT/qopqdp${qopqdptag:+-$qopqdptag}"
 qdpxxdir="$INSROOT/qdp++${qdpxxtag:+-$qdpxxtag}"
 
 pv="$package-$ver"
@@ -157,7 +158,7 @@ else
         echo "creating build directory \"$blddir\""
         mkdir -pv "$blddir"
     fi
-    sed "s|SRCDIR|$srcdir|g;s|INSDIR|$insdir|g;s|QMPDIR|$qmpdir|g;s|QIODIR|$qiodir|g;s|QLADIR|$qladir|g;s|QDPDIR|$qdpdir|g;s|QDPXXDIR|$qdpxxdir|g" "$conftmpl" >"$blddir/$conf"
+    sed "s|SRCDIR|$srcdir|g;s|INSDIR|$insdir|g;s|QMPDIR|$qmpdir|g;s|QIODIR|$qiodir|g;s|QLADIR|$qladir|g;s|QOPQDPDIR|$qopqdpdir|g;s|QDPDIR|$qdpdir|g;s|QDPXXDIR|$qdpxxdir|g" "$conftmpl" >"$blddir/$conf"
     po="${pkg}opts"
     echo "${!po}" >>"$blddir/$conf"
     chmod 755 "$blddir/$conf"

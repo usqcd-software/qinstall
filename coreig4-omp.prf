@@ -1,0 +1,60 @@
+rootdir=$HOME/lqcd
+
+SRCROOT=$rootdir/src
+DLDIR=$rootdir/download
+BLDROOT=$rootdir/build
+INSROOT=$rootdir/install
+
+qmp=mpi-mpicc-gcc
+qmptag=
+qmpcheck=yes
+
+qmp_test=qmp-gcc
+qmp_testtag=
+qmp_testcheck=yes
+
+qio=qmp-gcc
+qiotag=
+qiocheck=yes
+
+qla=generic
+qlatag=omp
+qlacheck=yes
+qlaopts=\
+'--enable-sse3 \
+ --enable-openmp \
+ CC=gcc \
+ CFLAGS="-Wall -std=c99 -O3 -fopenmp -march=core-avx-i -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer" \
+ TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"
+
+qdp=gcc-omp
+qdptag=omp
+qdpcheck=yes
+
+qopqdp=gcc-omp
+qopqdptag=omp
+qopqdpcheck=yes
+
+qhmc=generic
+qhmcptag=
+qhmccheck=yes
+qhmcopts=\
+'--enable-nc=all \
+ --enable-colors=n \
+ CFLAGS="-Wall -std=gnu99 -O3 -g -fopenmp -DQDP_PROFILE"'
+
+clover=qmp
+clovertag=
+clovercheck=no
+
+qdpxx=mpi-mpicxx-gcc-core2-float
+qdpxxtag=
+qdpxxcheck=yes
+
+chroma=gcc-core2-nogmp
+chromatag=
+chromacheck=yes
+
+adat=gcc
+adattag=
+adatcheck=yes
