@@ -22,11 +22,12 @@ qopqdpopts=\
  CFLAGS="-O3 -qinfo=pro -g -DQDP_PROFILE"'
 
 qhmc=generic
-qhmctag=
+qhmctag=c3
 qhmccheck=yes
 qhmcopts=\
 '--host=powerpc64-bgq-linux \
  --enable-nc=all \
+ --enable-colors=3 \
  CFLAGS="-O3 -qinfo=pro -g -DQDP_PROFILE"'
 
 qdpxx=
