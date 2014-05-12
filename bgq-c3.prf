@@ -18,9 +18,12 @@ qla=bgq-opt-xlc-qlarun
 qlatag=
 qlacheck=yes
 
-qdp=bgq-xlc
+qdp=generic
 qdptag=
 qdpcheck=yes
+qdpopts=\
+'--host=powerpc64-bgq-linux \
+ CFLAGS="-O3 -qinfo=pro"'
 
 qopqdp=generic
 qopqdptag=
