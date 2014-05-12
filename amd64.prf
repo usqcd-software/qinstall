@@ -26,7 +26,7 @@ qopqdptag=
 qopqdpcheck=yes
 
 qhmc=generic
-qhmcptag=
+qhmctag=
 qhmccheck=yes
 qhmcopts=\
 '--enable-nc=all \

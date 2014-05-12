@@ -158,9 +158,9 @@ else
         echo "creating build directory \"$blddir\""
         mkdir -pv "$blddir"
     fi
-    sed "s|SRCDIR|$srcdir|g;s|INSDIR|$insdir|g;s|QMPDIR|$qmpdir|g;s|QIODIR|$qiodir|g;s|QLADIR|$qladir|g;s|QOPQDPDIR|$qopqdpdir|g;s|QDPDIR|$qdpdir|g;s|QDPXXDIR|$qdpxxdir|g" "$conftmpl" >"$blddir/$conf"
     po="${pkg}opts"
-    echo "${!po}" >>"$blddir/$conf"
+    (cat "$conftmpl"; echo "${!po}") | \
+    sed "s|SRCDIR|$srcdir|g;s|INSDIR|$insdir|g;s|QMPDIR|$qmpdir|g;s|QIODIR|$qiodir|g;s|QLADIR|$qladir|g;s|QOPQDPDIR|$qopqdpdir|g;s|QDPDIR|$qdpdir|g;s|QDPXXDIR|$qdpxxdir|g" >"$blddir/$conf"
     chmod 755 "$blddir/$conf"
 fi
 

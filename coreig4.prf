@@ -26,16 +26,18 @@ qlaopts=\
  CFLAGS="-Wall -std=c99 -O3 -march=core-avx-i -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer" \
  TEST_CFLAGS="-Wall -std=c99 -O2"'
 
-qdp=gcc
+qdp=generic
 qdptag=
 qdpcheck=yes
+qdpopts=\
+'CFLAGS="-Wall -std=c99 -O3"'
 
 qopqdp=gcc
 qopqdptag=
 qopqdpcheck=yes
 
 qhmc=generic
-qhmcptag=
+qhmctag=
 qhmccheck=yes
 qhmcopts=\
 '--enable-nc=all \
@@ -46,9 +48,17 @@ clover=qmp
 clovertag=
 clovercheck=no
 
-qdpxx=mpi-mpicxx-gcc-core2-float
+qdpxx=generic
 qdpxxtag=
 qdpxxcheck=yes
+qdpxxopts=\
+'--enable-parallel-arch=parscalar \
+ --enable-precision=single \
+ --enable-sse2 \
+ CC=mpicc \
+ CFLAGS="-Wall -std=gnu99 -O3 -march=core-avx-i -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer" \
+ CXX=mpicxx \
+ CXXFLAGS="-Wall -O3 -march=core-avx-i -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer"'
 
 chroma=gcc-core2-nogmp
 chromatag=

@@ -29,6 +29,14 @@ qopqdp=gcc
 qopqdptag=
 qopqdpcheck=yes
 
+qhmc=generic
+qhmctag=
+qhmccheck=yes
+qhmcopts=\
+'--enable-nc=all \
+ --enable-colors=n \
+ CFLAGS="-Wall -std=gnu99 -O3 -g -DQDP_PROFILE"'
+
 clover=qmp
 clovertag=
 clovercheck=no
