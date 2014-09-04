@@ -24,12 +24,14 @@ qlaopts=\
 '--enable-sse3 \
  --enable-openmp \
  CC=gcc \
- CFLAGS="-Wall -std=c99 -O3 -fopenmp -march=core-avx-i -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer" \
- TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"
+ CFLAGS="-Wall -std=c99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer" \
+ TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"'
 
-qdp=gcc-omp
+qdp=generic
 qdptag=omp
 qdpcheck=yes
+qdpopts=\
+'CFLAGS="-Wall -std=c99 -O3 -fopenmp"'
 
 qopqdp=gcc-omp
 qopqdptag=omp
