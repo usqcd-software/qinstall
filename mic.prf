@@ -1,0 +1,59 @@
+rootdir=$HOME/lqcd
+
+SRCROOT=$rootdir/src
+DLDIR=$rootdir/download
+BLDROOT=$rootdir/build
+INSROOT=$rootdir/install
+
+tag=mic
+copts="-std=gnu99 -O3 -no-prec-div -fp-model fast=2 -mmic -qopenmp"
+
+qmp=generic
+qmptag=$tag
+qmpcheck=yes
+qmpopts=\
+'--with-qmp-comms-type=MPI \
+ --host=mic \
+ CC=mpiicc \
+ CFLAGS="'$copts' -g"'
+
+qio=generic
+qiotag=$tag
+qiocheck=yes
+qioopts=\
+'--host=mic \
+ --enable-largefile \
+ --enable-dml-output-buffering \
+ CFLAGS="'$copts' -g"'
+
+qla=generic
+qlatag=$tag
+qlacheck=yes
+qlaopts=\
+'--host=mic \
+ CC=icc \
+ CFLAGS="'$copts'" \
+ TEST_CFLAGS="-std=gnu99 -O2 -mmic -qopenmp"'
+
+qdp=generic
+qdptag=$tag
+qdpcheck=yes
+qdpopts=\
+'--host=mic \
+ CFLAGS="'$copts'"'
+
+qopqdp=generic
+qopqdptag=$tag
+qopqdpcheck=yes
+qopqdpopts=\
+'--host=mic \
+ CFLAGS="'$copts' -g -DQDP_PROFILE"'
+
+qhmc=generic
+qhmctag=$tag
+qhmccheck=yes
+qhmcopts=\
+'--host=mic \
+ --enable-nc=all \
+ --enable-colors=n \
+ CFLAGS="'$copts' -g -DQDP_PROFILE"'

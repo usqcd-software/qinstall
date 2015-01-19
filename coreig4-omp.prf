@@ -5,6 +5,8 @@ DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
+copt="-Wall -std=gnu99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer"
+
 qmp=mpi-mpicc-gcc
 qmptag=
 qmpcheck=yes
@@ -24,26 +26,28 @@ qlaopts=\
 '--enable-sse3 \
  --enable-openmp \
  CC=gcc \
- CFLAGS="-Wall -std=c99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer" \
+ CFLAGS="'$copt'" \
  TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"'
 
 qdp=generic
 qdptag=omp
 qdpcheck=yes
 qdpopts=\
-'CFLAGS="-Wall -std=c99 -O3 -fopenmp"'
+'CFLAGS="'$copt'"'
 
-qopqdp=gcc-omp
+qopqdp=generic
 qopqdptag=omp
 qopqdpcheck=yes
+qopqdpopts=\
+'CFLAGS="'$copt' -g -DQDP_PROFILE"'
 
 qhmc=generic
-qhmctag=
+qhmctag=omp
 qhmccheck=yes
 qhmcopts=\
 '--enable-nc=all \
  --enable-colors=n \
- CFLAGS="-Wall -std=gnu99 -O3 -g -fopenmp -DQDP_PROFILE"'
+ CFLAGS="'$copt' -g -DQDP_PROFILE"'
 
 clover=qmp
 clovertag=

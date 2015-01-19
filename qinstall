@@ -35,9 +35,12 @@ my_realpath() {
 #exe="`readlink $0`"
 #mydir="`dirname $exe`"
 mydir="`my_realpath "$0"`"
+echo "executing: $0"
+echo "using config directory: $mydir"
 
 deffn="$mydir/qinstall.defaults"
 if [ -f "$deffn" ]; then
+  echo "loading: $deffn"
   . "$deffn"
 fi
 
@@ -46,15 +49,18 @@ if [ ! -f "$prffn" ]; then
     echo "error: profile file \"$prffn\" not found"
     exit 1
 fi
+echo "loading: $prffn"
 . "$prffn"
 
 localdeffn="$mydir/qinstall.local"
 if [ -f "$localdeffn" ]; then
+  echo "loading: $localdeffn"
   . "$localdeffn"
 fi
 
 localprffn="$mydir/${prf}.local"
 if [ -f "$localprffn" ]; then
+  echo "loading: $localprffn"
   . "$localprffn"
 fi
 
