@@ -1,0 +1,50 @@
+tmpwrap="`which tmpwrap 2>/dev/null`"
+
+qmp=generic
+qmptag=spi
+qmpcheck=yes
+qmpopts=\
+'--with-qmp-comms-type=MPI \
+ --host=powerpc64-bgq-linux \
+ --enable-bgq \
+ --enable-bgspi \
+ CC="'$tmpwrap' mpixlc_r" \
+ CFLAGS="-O3 -qinfo=pro -g"'
+
+qio=bgq-qmp-xlc
+qiotag=
+qiocheck=yes
+
+qla=bgq-opt-xlc-qlarun-omp
+qlatag=omp
+qlacheck=yes
+
+qdp=generic
+qdptag=spi-omp
+qdpcheck=yes
+qdpopts=\
+'--host=powerpc64-bgq-linux \
+ CFLAGS="-O3 -qinfo=pro -qsmp=omp -DUSE_STRIDED=0"'
+
+qopqdp=generic
+qopqdptag=spi-omp
+qopqdpcheck=yes
+qopqdpopts=\
+'--host=powerpc64-bgq-linux \
+ CFLAGS="-O3 -qinfo=pro -qsmp=omp -g -DQDP_PROFILE"'
+
+qhmc=generic
+qhmctag=spi-omp
+qhmccheck=yes
+qhmcopts=\
+'--host=powerpc64-bgq-linux \
+ --enable-nc=all \
+ CFLAGS="-O3 -qinfo=pro -qsmp=omp -g -DQDP_PROFILE"'
+
+qdpxx=
+qdpxxtag=
+qdpxxcheck=yes
+
+chroma=
+chromatag=
+chromacheck=yes
