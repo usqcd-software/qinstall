@@ -5,7 +5,7 @@ DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
-copt="-Wall -std=gnu99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fomit-frame-pointer"
+copt="-Wall -std=gnu99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
 
 qmp=mpi-mpicc-gcc
 qmptag=
