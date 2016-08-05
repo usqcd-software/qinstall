@@ -1,0 +1,70 @@
+rootdir=$HOME/lqcd
+
+SRCROOT=$rootdir/src
+DLDIR=$rootdir/download
+BLDROOT=$rootdir/build
+INSROOT=$rootdir/install
+
+copt="-Wall -std=gnu99 -O3 -fopenmp -march=native -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
+
+qmp=generic
+qmptag=gcc
+qmpcheck=yes
+qmpopts=\
+'--with-qmp-comms-type=MPI \
+ CC=mpicc-gcc-6.1 \
+ CFLAGS="'$copt' -g"'
+
+qio=generic
+qiotag=gcc
+qiocheck=yes
+qioopts=\
+'--enable-largefile \
+ --enable-dml-output-buffering \
+ CFLAGS="'$copt' -g"'
+
+qla=generic
+qlatag=gcc
+qlacheck=yes
+qlaopts=\
+'--enable-sse3 \
+ --enable-openmp \
+ CC=gcc-6.1 \
+ CFLAGS="'$copt'" \
+ TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"'
+
+qdp=generic
+qdptag=gcc
+qdpcheck=yes
+qdpopts=\
+'CFLAGS="'$copt'"'
+
+qopqdp=generic
+qopqdptag=gcc
+qopqdpcheck=yes
+qopqdpopts=\
+'CFLAGS="'$copt' -g -DQDP_PROFILE"'
+
+qhmc=generic
+qhmctag=gcc
+qhmccheck=yes
+qhmcopts=\
+'--enable-nc=all \
+ --enable-colors=n \
+ CFLAGS="'$copt' -g -DQDP_PROFILE"'
+
+clover=qmp
+clovertag=
+clovercheck=no
+
+qdpxx=mpi-mpicxx-gcc-core2-float
+qdpxxtag=
+qdpxxcheck=yes
+
+chroma=gcc-core2-nogmp
+chromatag=
+chromacheck=yes
+
+adat=gcc
+adattag=
+adatcheck=yes
