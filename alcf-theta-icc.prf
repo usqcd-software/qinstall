@@ -1,0 +1,62 @@
+rootdir=$HOME/lqcd
+
+SRCROOT=$rootdir/src
+DLDIR=$rootdir/download
+BLDROOT=$rootdir/build
+INSROOT=$rootdir/install
+
+#module swap PrgEnv-gnu PrgEnv-intel
+copt="-std=gnu99 -Ofast -xMIC-AVX512 -qopenmp"
+host="--host=x86_64-suse-linux"
+
+qmp=generic
+qmptag=icc
+qmpcheck=yes
+qmpopts=\
+''$host' \
+ --with-qmp-comms-type=MPI \
+ CC=cc \
+ CFLAGS="'$copt' -g"'
+
+qio=generic
+qiotag=icc
+qiocheck=yes
+qioopts=\
+''$host' \
+ --enable-largefile \
+ --enable-dml-output-buffering \
+ CFLAGS="'$copt' -g"'
+
+qla=generic
+qlatag=icc
+qlacheck=yes
+qlaopts=\
+''$host' \
+ --enable-sse3 \
+ --enable-openmp \
+ CC=cc \
+ CFLAGS="'$copt'" \
+ TEST_CFLAGS="-std=gnu99 -O2 -qopenmp"'
+
+qdp=generic
+qdptag=icc
+qdpcheck=yes
+qdpopts=\
+''$host' \
+ CFLAGS="'$copt'"'
+
+qopqdp=generic
+qopqdptag=icc
+qopqdpcheck=yes
+qopqdpopts=\
+''$host' \
+ CFLAGS="'$copt' -g -DQDP_PROFILE"'
+
+qhmc=generic
+qhmctag=icc
+qhmccheck=yes
+qhmcopts=\
+''$host' \
+ --enable-nc=all \
+ --enable-colors=3 \
+ CFLAGS="'$copt' -g -DQDP_PROFILE"'

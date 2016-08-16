@@ -1,0 +1,78 @@
+rootdir=$HOME/lqcd
+
+SRCROOT=$rootdir/src
+DLDIR=$rootdir/download
+BLDROOT=$rootdir/build
+INSROOT=$rootdir/install
+
+#module swap PrgEnv-intel PrgEnv-gnu
+copt="-Wall -std=gnu99 -O3 -fopenmp -march=knl -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
+host="--host=x86_64-suse-linux"
+
+qmp=generic
+qmptag=gcc
+qmpcheck=yes
+qmpopts=\
+''$host' \
+ --with-qmp-comms-type=MPI \
+ CC=cc \
+ CFLAGS="'$copt' -g"'
+
+qio=generic
+qiotag=gcc
+qiocheck=yes
+qioopts=\
+''$host' \
+ --enable-largefile \
+ --enable-dml-output-buffering \
+ CFLAGS="'$copt' -g"'
+
+qla=generic
+qlatag=gcc
+qlacheck=yes
+qlaopts=\
+''$host' \
+ --enable-sse3 \
+ --enable-openmp \
+ CC=cc \
+ CFLAGS="'$copt'" \
+ TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"'
+
+qdp=generic
+qdptag=gcc
+qdpcheck=yes
+qdpopts=\
+''$host' \
+ CFLAGS="'$copt'"'
+
+qopqdp=generic
+qopqdptag=gcc
+qopqdpcheck=yes
+qopqdpopts=\
+''$host' \
+ CFLAGS="'$copt' -g -DQDP_PROFILE"'
+
+qhmc=generic
+qhmctag=gcc
+qhmccheck=yes
+qhmcopts=\
+''$host' \
+ --enable-nc=all \
+ --enable-colors=3 \
+ CFLAGS="'$copt' -g -DQDP_PROFILE"'
+
+clover=qmp
+clovertag=
+clovercheck=no
+
+qdpxx=mpi-mpicxx-gcc-core2-float
+qdpxxtag=
+qdpxxcheck=yes
+
+chroma=gcc-core2-nogmp
+chromatag=
+chromacheck=yes
+
+adat=gcc
+adattag=
+adatcheck=yes
