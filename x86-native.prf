@@ -5,28 +5,40 @@ DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
-copt="-Wall -std=gnu99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fPIC"
+copt0="-Wall -std=gnu99 -fPIC"
+copt1="$copt0 -O3 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
+copt="$copt1 -march=native"
 
-qmp=mpi-mpicc-gcc-pic
+qmp=generic
 qmptag=
 qmpcheck=yes
+qmpopts=\
+'--with-qmp-comms-type=MPI \
+ CC=mpicc \
+ CFLAGS="'$copt' -g"'
 
 qmp_test=qmp-gcc-pic
 qmp_testtag=
 qmp_testcheck=yes
 
-qio=qmp-gcc-pic
+qio=generic
 qiotag=
 qiocheck=yes
+qioopts=\
+'--enable-largefile \
+ --enable-dml-output-buffering \
+ --enable-dml-bufsize=$((32*1024*1024)) \
+ CC=mpicc \
+ CFLAGS="'$copt' -g"'
 
 qla=generic
 qlatag=
 qlacheck=yes
 qlaopts=\
 '--enable-sse3 \
- CC=gcc \
+ CC=mpicc \
  CFLAGS="'$copt'" \
- TEST_CFLAGS="-Wall -std=c99 -O2 -fPIC"'
+ TEST_CFLAGS="'$copt0' -O2"'
 
 qdp=generic
 qdptag=
@@ -38,7 +50,7 @@ qopqdp=generic
 qopqdptag=
 qopqdpcheck=yes
 qopqdpopts=\
-'CFLAGS="'$copt' -g -DQDP_PROFILE"'
+'CFLAGS="'$copt1' -g -DQDP_PROFILE"'
 
 qhmc=generic
 qhmctag=
@@ -60,9 +72,9 @@ qdpxxopts=\
  --enable-precision=single \
  --enable-sse2 \
  CC=mpicc \
- CFLAGS="-Wall -std=gnu99 -O3 -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops" \
+ CFLAGS="'$copt'" \
  CXX=mpicxx \
- CXXFLAGS="-Wall -O3 -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"'
+ CXXFLAGS="'$copt'"'
 
 chroma=gcc-core2-nogmp
 chromatag=

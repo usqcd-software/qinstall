@@ -1,0 +1,93 @@
+rootdir=$HOME/lqcd
+
+SRCROOT=$rootdir/src
+DLDIR=$rootdir/download
+BLDROOT=$rootdir/build
+INSROOT=$rootdir/install
+
+copt0="-Wall -std=gnu99 -fPIC"
+copt1="$copt0 -O3 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
+copt="$copt1 -march=native"
+
+qmp=generic
+qmptag=
+qmpcheck=yes
+qmpopts=\
+'--with-qmp-comms-type=MPI \
+ CC=mpicc \
+ CFLAGS="'$copt' -g"'
+
+qmp_test=qmp-gcc-pic
+qmp_testtag=
+qmp_testcheck=yes
+
+qio=generic
+qiotag=
+qiocheck=yes
+qioopts=\
+'--enable-largefile \
+ --enable-dml-output-buffering \
+ --enable-dml-bufsize=$((32*1024*1024)) \
+ CC=mpicc \
+ CFLAGS="'$copt' -g"'
+
+qla=generic
+qlatag=omp
+qlacheck=yes
+qlaopts=\
+'--enable-sse3 \
+ --enable-openmp \
+ CC=mpicc \
+ CFLAGS="'$copt' -fopenmp" \
+ TEST_CFLAGS="'$copt0' -O2 -fopenmp"'
+
+qdp=generic
+qdptag=omp
+qdpcheck=yes
+qdpopts=\
+'CFLAGS="'$copt' -fopenmp"'
+
+qopqdp=generic
+qopqdptag=quda
+qopqdpcheck=yes
+qopqdpopts=\
+'--with-quda=$HOME/lqcd/install/quda \
+ CFLAGS="'$copt1' -g -DQDP_PROFILE -fopenmp" \
+ LD="mpiCC" \
+ LDFLAGS="-fPIC -fopenmp" \
+ LIBS="-lrt -lpthread"'
+
+qhmc=generic
+qhmctag=quda
+qhmccheck=yes
+qhmcopts=\
+'--enable-nc=all \
+ --enable-colors=n \
+ CFLAGS="'$copt' -g -DQDP_PROFILE -fopenmp" \
+ LD="mpiCC" \
+ LDFLAGS="-fPIC -fopenmp" \
+ LIBS="$HOME/lqcd/install/quda/lib/libquda.a /usr/local/cuda/lib64/libcudart_static.a -ldl -lrt -lpthread"'
+
+clover=qmp
+clovertag=
+clovercheck=no
+
+qdpxx=generic
+qdpxxtag=
+qdpxxcheck=yes
+qdpxxopts=\
+'--enable-parallel-arch=parscalar \
+ --enable-precision=single \
+ --enable-sse2 \
+ CC=mpicc \
+ CFLAGS="'$copt'" \
+ CXX=mpicxx \
+ CXXFLAGS="'$copt'"'
+
+chroma=gcc-core2-nogmp
+chromatag=
+chromacheck=yes
+
+adat=gcc
+adattag=
+adatcheck=yes

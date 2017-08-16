@@ -5,17 +5,17 @@ DLDIR=$rootdir/download
 BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
-copt="-Wall -std=gnu99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
+copt="-Wall -std=gnu99 -O3 -fopenmp -march=core-avx2 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops -fPIC"
 
-qmp=mpi-mpicc-gcc
+qmp=mpi-mpicc-gcc-pic
 qmptag=
 qmpcheck=yes
 
-qmp_test=qmp-gcc
+qmp_test=qmp-gcc-pic
 qmp_testtag=
 qmp_testcheck=yes
 
-qio=qmp-gcc
+qio=qmp-gcc-pic
 qiotag=
 qiocheck=yes
 
@@ -27,7 +27,7 @@ qlaopts=\
  --enable-openmp \
  CC=gcc \
  CFLAGS="'$copt'" \
- TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp"'
+ TEST_CFLAGS="-Wall -std=c99 -O2 -fopenmp -fPIC"'
 
 qdp=generic
 qdptag=omp
