@@ -66,16 +66,16 @@ clovertag=
 clovercheck=no
 
 qdpxx=generic
-qdpxxtag=
+qdpxxtag=omp
 qdpxxcheck=yes
 qdpxxopts=\
 '--enable-parallel-arch=parscalar \
  --enable-precision=single \
  --enable-sse2 \
  CC=mpicc \
- CFLAGS="'$copt'" \
+ CFLAGS="'$copt' -fopenmp" \
  CXX=mpicxx \
- CXXFLAGS="'$copt'"'
+ CXXFLAGS="'$copt' -fopenmp"'
 
 chroma=gcc-core2-nogmp
 chromatag=

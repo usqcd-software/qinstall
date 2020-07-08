@@ -101,7 +101,7 @@ qiodir="$INSROOT/qio${qiotag:+-$qiotag}"
 qladir="$INSROOT/qla${qlatag:+-$qlatag}"
 qdpdir="$INSROOT/qdp${qdptag:+-$qdptag}"
 qopqdpdir="$INSROOT/qopqdp${qopqdptag:+-$qopqdptag}"
-qdpxxdir="$INSROOT/qdp++${qdpxxtag:+-$qdpxxtag}"
+qdpxxdir="$INSROOT/qdpxx${qdpxxtag:+-$qdpxxtag}"
 
 pv="$package-$ver"
 tarfile="$pv.tar.gz"

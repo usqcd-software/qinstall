@@ -6,8 +6,11 @@ BLDROOT=$rootdir/build
 INSROOT=$rootdir/install
 
 copt0="-Wall -std=gnu99 -fPIC"
-copt1="$copt0 -O3 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
-copt="$copt1 -march=native"
+copt1="-O3 -ffast-math -funroll-loops -fprefetch-loop-arrays -fpeel-loops -funswitch-loops"
+copt="$copt0 $copt1 -march=native"
+cxxopt0="-Wall -std=gnu++11 -fPIC"
+cxxopt1="$copt1"
+cxxopt="$cxxopt0 $cxxopt1 -march=native"
 
 qmp=generic
 qmptag=
@@ -50,7 +53,7 @@ qopqdp=generic
 qopqdptag=
 qopqdpcheck=yes
 qopqdpopts=\
-'CFLAGS="'$copt1' -g -DQDP_PROFILE"'
+'CFLAGS="'$copt' -g -DQDP_PROFILE"'
 
 qhmc=generic
 qhmctag=
@@ -69,16 +72,18 @@ qdpxxtag=
 qdpxxcheck=yes
 qdpxxopts=\
 '--enable-parallel-arch=parscalar \
- --enable-precision=single \
- --enable-sse2 \
- CC=mpicc \
- CFLAGS="'$copt'" \
+ --enable-precision=double \
+ --enable-sse3 \
+ --enable-openmp \
  CXX=mpicxx \
- CXXFLAGS="'$copt'"'
+ CXXFLAGS="'$cxxopt' -g -fopenmp"'
 
-chroma=gcc-core2-nogmp
+chroma=generic
 chromatag=
 chromacheck=yes
+chromaopts=\
+'CXX=mpicxx \
+ CXXFLAGS="'$cxxopt' -g -fopenmp"'
 
 adat=gcc
 adattag=
